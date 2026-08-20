@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ==========================================================================
+     ECOSHIFT DESIGN SYSTEM - GLOBAL CSS VARIABLES
+     ========================================================================== */
+
+  /* Typography */
+  --font-family-base: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Primary — Eco Green Palette */
+  --color-primary-800: #1B5E20; /* Dark forest green (Pressed state) */
+  --color-primary-700: #256528; /* Dark green (Active tab / Active text) */
+  --color-primary-600: #2E7D32; /* Primary Brand Main */
+  --color-primary-400: #66BB6A; /* Medium accent green */
+  --color-primary-100: #C8E6C9; /* Light mint (Chips & badges) */
+  --color-primary-50: #EDF7EE;  /* Tint bg (Active pill & icon bg) */
+
+  /* Secondary — Teal Palette */
+  --color-secondary-700: #00695C;
+  --color-secondary-500: #00897B; /* FAB & Action Teal */
+  --color-secondary-100: #B2DFDB; /* Card thumbnail bg */
+
+  /* Neutrals — Text & Surfaces */
+  --color-text-primary: #1B1F1C;   /* Main text & titles */
+  --color-text-secondary: #55605A; /* Subtitles & meta text */
+  --color-placeholder: #8A948E;    /* Placeholder & disabled */
+  --color-border: #DCE3DE;         /* Neutral / 300 - Borders & dividers */
+  --color-surface-alt: #F1F5F1;    /* Segment track & alt surface */
+  --color-background: #FBFAFB;     /* App background */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Waste Categories */
+  --color-cat-plastic: #1E88E5;
+  --color-cat-paper: #FB8C00;
+  --color-cat-glass: #00897B;
+  --color-cat-organic: #7CB342;
+  --color-cat-ewaste: #8E24AA;
+  --color-cat-metal: #757575;
+
+  /* Status Colors */
+  --color-status-success: #2E7D32;
+  --color-status-error: #D32F2F;
+  --color-status-warning: #FFA000;
+  --color-status-info: #0288D1;
+
+  /* Spacing Scale (8pt grid system, 4pt tight) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Corner Radius Scale */
+  --radius-xs: 6px;   /* Chips, badges */
+  --radius-sm: 10px;  /* Inputs, search bars */
+  --radius-md: 14px;  /* Cards, list items, stat cards */
+  --radius-lg: 20px;  /* Modals, bottom sheets */
+  --radius-full: 9999px; /* Pill buttons, FAB, indicators */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 12px rgba(27, 31, 28, 0.06);
+  --shadow-fab: 0 6px 16px rgba(0, 137, 123, 0.3);
+  --shadow-modal: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  /* Component Layout Dimensions */
+  --header-height: 56px;
+  --bottom-tab-height: 64px;
+  --button-primary-height: 52px;
+  --button-secondary-height: 50px;
+  --button-fab-size: 56px;
+  --input-height: 48px;
+}
+
+/* ==========================================================================
+   DARK MODE OVERRIDES
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #F5F7F5;
+    --color-text-secondary: #A0ABA4;
+    --color-placeholder: #636E67;
+    --color-border: #2A332C;
+    --color-surface-alt: #262D28;
+    --color-background: #121513;
+    --color-primary-50: #1B3820;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family-base);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY CLASSES
+   ========================================================================== */
+.display-h1 {
+  font-family: var(--font-family-base);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.heading-h2 {
+  font-family: var(--font-family-base);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.subheading-h3 {
+  font-family: var(--font-family-base);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.overline-label {
+  font-family: var(--font-family-base);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+}
+
+.body-large {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.body-medium {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.caption {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--color-placeholder);
+}
+
+/* ==========================================================================
+   BUTTON CLASSES (Page 2 Reference)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  text-decoration: none;
+}
+
+/* Primary Button */
+.btn-primary {
+  height: var(--button-primary-height);
+  padding: 0 24px;
+  background-color: var(--color-primary-600);
+  color: var(--color-white);
+  font-size: 16px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--color-primary-800);
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-placeholder);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+  height: var(--button-secondary-height);
+  padding: 0 22px;
+  background-color: transparent;
+  border: 1.5px solid var(--color-primary-600);
+  color: var(--color-primary-600);
+  font-size: 16px;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: var(--color-primary-50);
+}
+
+/* Text / Ghost Button */
+.btn-text {
+  height: auto;
+  padding: 0 4px;
+  background-color: transparent;
+  color: var(--color-primary-700);
+  font-size: 14px;
+}
+
+.btn-text:hover {
+  text-decoration: underline;
+}
+
+/* Floating Action Button (FAB) */
+.btn-fab {
+  width: var(--button-fab-size);
+  height: var(--button-fab-size);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary-500);
+  color: var(--color-white);
+  box-shadow: var(--shadow-fab);
+  padding: 0;
+}
+
+.btn-fab:hover {
+  background-color: var(--color-secondary-700);
+}
+
+/* ==========================================================================
+   SURFACES, CARDS & LIST ITEMS (Page 3 & 5 Reference)
+   ========================================================================== */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 0.75px solid var(--color-border);
+  padding: var(--spacing-base);
+  box-shadow: var(--shadow-card);
+}
+
+.card-stat {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-base);
+}
+
+.card-stat-icon-wrapper {
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-base);
+  background-color: var(--color-white);
+  border-bottom: 0.75px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   INPUTS & FORMS (Page 5 Reference)
+   ========================================================================== */
+.input-text {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--spacing-base);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-text:focus {
+  border-color: var(--color-primary-600);
+}
+
+.input-text::placeholder {
+  color: var(--color-placeholder);
+}
+
+.input-text:disabled {
+  background-color: var(--color-surface-alt);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   NAVIGATION & CONTROLS (Page 3 Reference)
+   ========================================================================== */
+.top-app-bar {
+  height: var(--header-height);
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-base);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.top-app-bar-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text-primary);
+}
+
+.bottom-tab-bar {
+  height: var(--bottom-tab-height);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tab-item-active-indicator {
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+}
+
+.segmented-control-track {
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   CATEGORY CHIPS & BADGES (Page 5 Reference)
+   ========================================================================== */
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.category-chip.plastic { background-color: #E3F2FD; color: var(--color-cat-plastic); }
+.category-chip.paper   { background-color: #FFF3E0; color: var(--color-cat-paper); }
+.category-chip.glass   { background-color: #E0F2F1; color: var(--color-cat-glass); }
+.category-chip.organic { background-color: #F1F8E9; color: var(--color-cat-organic); }
+.category-chip.ewaste  { background-color: #F3E5F5; color: var(--color-cat-ewaste); }
+.category-chip.metal   { background-color: #EEEEEE; color: var(--color-cat-metal); }
+
+.notification-badge {
+  background-color: var(--color-status-error);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  min-width: 18px;
+  text-align: center;
+}
